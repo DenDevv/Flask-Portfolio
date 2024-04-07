@@ -1,1 +1,1 @@
-from .project_model import Project, ProjectCategory
+from .project_model import Project

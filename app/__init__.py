@@ -1,32 +1,28 @@
-import os
+from flask import Flask, json
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from config import config
+from app.database import db
+from app.models import Project
 
 
-# instantiate extensions
-db = SQLAlchemy()
+base_conf = config.get("base")
+
 app = Flask(__name__)
+admin = Admin(app, name="Admin Panel", template_mode="bootstrap4")
+admin.add_view(ModelView(Project, db.session))
 
 
-# creating app
 def create_app():
-    APP_SECRET = os.getenv("APP_SECRET")
-
-    POSTGRES_HOST = os.getenv("POSTGRES_HOST")
-    POSTGRES_DB = os.getenv("POSTGRES_DB")
-    POSTGRES_USER = os.getenv("POSTGRES_USER")
-    POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-    POSTGRES_PORT = os.getenv("POSTGRES_PORT")
-
     from app.views import app_blueprint
 
-    # Instantiate app.
-    app.secret_key = APP_SECRET
-    app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-    )
+    app.secret_key = base_conf.APP_SECRET
+    app.config["SQLALCHEMY_DATABASE_URI"] = base_conf.DB_URL
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["FLASK_ADMIN_SWATCH"] = "lux"
+
+    json.provider.DefaultJSONProvider.ensure_ascii = False
 
     # Set up extensions.
     db.init_app(app)

@@ -1,6 +1,7 @@
 Flask
 Flask-WTF
 Flask-SQLAlchemy
+Flask-Admin
 psycopg2-binary
 python-dotenv
-gunicorn 
+gunicorn

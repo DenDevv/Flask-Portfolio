@@ -5,5 +5,17 @@ Online Chat 🇺🇦
 {% endblock %}
 
 {% block body %}
-Hello
+
+{% for category in categories %}
+
+    {% for project in projects %}
+        
+        {% if category == project.category %}
+            Hello
+        {% endif %}
+
+    {% endfor %}
+
+{% endfor %}
+
 {% endblock %}
