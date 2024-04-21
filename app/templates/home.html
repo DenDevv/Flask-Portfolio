@@ -1,21 +1,72 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Online Chat 🇺🇦
+My Portfolio
 {% endblock %}
 
 {% block body %}
 
-{% for category in categories %}
+<div class="home_nav_block">
+    <nav class="navigation">
+        <div class="nav_elements">
+            <a href="{{ url_for('app.works') }}" id="nav_el1" class="white_title">My works</a>
+            <a href="#" id="nav_el2" class="white_title">Contact</a>
+        </div>
+    </nav>
+</div>
 
-    {% for project in projects %}
-        
-        {% if category == project.category %}
-            Hello
-        {% endif %}
+<div class="home_left_panel">
+    <div>
+        <a href="https://github.com/DenDevv" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url_for('static', filename='imgs/mdi_github.png') }}" alt="image" class="left_panel_element">
+        </a>
+    </div>
 
+    <div>
+        <a href="https://t.me/python_dev_ua" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url_for('static', filename='imgs/mdi_telegram.png') }}" alt="image" class="left_panel_element">
+        </a>
+    </div>
+
+    <div>
+        <a href="https://www.linkedin.com/in/denys-didukh-6745a02ab/" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url_for('static', filename='imgs/mdi_linkedin.png') }}" alt="image" class="left_panel_element">
+        </a>
+    </div>
+
+    <div>
+        <a href="mailto:denisdev76@gmail.com">
+            <img src="{{ url_for('static', filename='imgs/mdi_gmail.png') }}" alt="image" class="left_panel_element">
+        </a>
+    </div>
+</div>
+
+<div class="home_blocks">
+    <div id="home_title" class="white_title">
+        <p>Hi,</p>
+        <p>I'm Denis,</p>
+        <p>python developer.</p>
+    </div>
+
+    <div id="aboutme_button">
+        <a href="#" id="aboutme_link" class="white_title">
+            About me
+
+            <span class="arrow-1">
+                <div></div>
+            </span>
+        </a>
+    </div>
+
+</div>
+
+<div class="icons">
+
+    {% for i in range(14) %}
+    <img src="{{ url_for('static', filename='imgs/back_icon_' + (i+1)|string + '.png') }}" alt="figure error"
+        id="figure{{i+1}}" draggable="false">
     {% endfor %}
 
-{% endfor %}
+</div>
 
 {% endblock %}
