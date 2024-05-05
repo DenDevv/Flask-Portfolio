@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My works
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/works_page.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="top_nav_menu_block">
+    <a href="{{ url_for('app.home') }}">
+        <svg class="home_icon" width="27" height="18" viewBox="0 0 27 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10.7501 22.125V15.25H16.2501V22.125C16.2501 22.8812 16.8688 23.5 17.6251 23.5H21.7501C22.5063 23.5 23.1251 22.8812 23.1251 22.125V12.5H25.4626C26.0951 12.5 26.3976 11.7162 25.9163 11.3037L14.4213 0.949998C13.8988 0.482498 13.1013 0.482498 12.5788 0.949998L1.08382 11.3037C0.616324 11.7162 0.905074 12.5 1.53757 12.5H3.87507V22.125C3.87507 22.8812 4.49382 23.5 5.25007 23.5H9.37507C10.1313 23.5 10.7501 22.8812 10.7501 22.125Z"
+                fill="white" />
+        </svg>
+        Home
+    </a>
+    <a href="#">
+        <svg class="all_w_icon" width="25" height="19" viewBox="0 0 26 25" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M3 24.25C2.3125 24.25 1.72417 24.0054 1.235 23.5163C0.745833 23.0271 0.500833 22.4383 0.5 21.75V8C0.5 7.3125 0.745 6.72417 1.235 6.235C1.725 5.74583 2.31333 5.50083 3 5.5H8V3C8 2.3125 8.245 1.72417 8.735 1.235C9.225 0.745833 9.81333 0.500833 10.5 0.5H15.5C16.1875 0.5 16.7763 0.745 17.2663 1.235C17.7563 1.725 18.0008 2.31333 18 3V5.5H23C23.6875 5.5 24.2763 5.745 24.7663 6.235C25.2563 6.725 25.5008 7.31333 25.5 8V21.75C25.5 22.4375 25.2554 23.0263 24.7663 23.5163C24.2771 24.0063 23.6883 24.2508 23 24.25H3ZM10.5 5.5H15.5V3H10.5V5.5Z"
+                fill="white" />
+        </svg>
+        All works
+    </a>
+    <a href="#">
+        <svg class="contact_icon" width="22" height="20" viewBox="0 0 22 26" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M12 25.5L11.6875 21.75H11.375C8.41667 21.75 5.90625 20.7188 3.84375 18.6562C1.78125 16.5938 0.75 14.0833 0.75 11.125C0.75 8.16667 1.78125 5.65625 3.84375 3.59375C5.90625 1.53125 8.41667 0.5 11.375 0.5C12.8542 0.5 14.2346 0.775833 15.5162 1.3275C16.7979 1.87917 17.9229 2.63958 18.8913 3.60875C19.8596 4.57792 20.6196 5.70292 21.1712 6.98375C21.7229 8.26458 21.9992 9.645 22 11.125C22 12.6875 21.745 14.1875 21.235 15.625C20.725 17.0625 20.0267 18.3958 19.14 19.625C18.255 20.8542 17.2029 21.9688 15.9838 22.9688C14.7646 23.9688 13.4367 24.8125 12 25.5ZM11.3438 17.9688C11.6979 17.9688 12 17.8438 12.25 17.5938C12.5 17.3438 12.625 17.0417 12.625 16.6875C12.625 16.3333 12.5 16.0313 12.25 15.7812C12 15.5312 11.6979 15.4062 11.3438 15.4062C10.9896 15.4062 10.6875 15.5312 10.4375 15.7812C10.1875 16.0313 10.0625 16.3333 10.0625 16.6875C10.0625 17.0417 10.1875 17.3438 10.4375 17.5938C10.6875 17.8438 10.9896 17.9688 11.3438 17.9688ZM10.4375 14H12.3125C12.3125 13.375 12.375 12.9375 12.5 12.6875C12.625 12.4375 13.0208 11.9792 13.6875 11.3125C14.0625 10.9375 14.375 10.5312 14.625 10.0938C14.875 9.65625 15 9.1875 15 8.6875C15 7.625 14.6408 6.82792 13.9225 6.29625C13.2042 5.76458 12.355 5.49917 11.375 5.5C10.4583 5.5 9.6875 5.75542 9.0625 6.26625C8.4375 6.77708 8 7.39667 7.75 8.125L9.5 8.8125C9.60417 8.45833 9.80208 8.10958 10.0938 7.76625C10.3854 7.42292 10.8125 7.25083 11.375 7.25C11.9375 7.25 12.3596 7.40625 12.6412 7.71875C12.9229 8.03125 13.0633 8.375 13.0625 8.75C13.0625 9.10417 12.9583 9.42208 12.75 9.70375C12.5417 9.98542 12.2917 10.2717 12 10.5625C11.2708 11.1875 10.8283 11.6825 10.6725 12.0475C10.5167 12.4125 10.4383 13.0633 10.4375 14Z"
+                fill="white" />
+        </svg>
+        Conact
+    </a>
+</div>
+
+<h1>
+    My works
+</h1>
+
+<div class="filter_btns">
+    <svg class="filter_icon" width="54" height="20" viewBox="0 0 54 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M18 29.25C18 28.6533 18.2371 28.081 18.659 27.659C19.081 27.2371 19.6533 27 20.25 27H33.75C34.3467 27 34.919 27.2371 35.341 27.659C35.7629 28.081 36 28.6533 36 29.25C36 29.8467 35.7629 30.419 35.341 30.841C34.919 31.2629 34.3467 31.5 33.75 31.5H20.25C19.6533 31.5 19.081 31.2629 18.659 30.841C18.2371 30.419 18 29.8467 18 29.25ZM9 15.75C9 15.1533 9.23705 14.581 9.65901 14.159C10.081 13.7371 10.6533 13.5 11.25 13.5H42.75C43.3467 13.5 43.919 13.7371 44.341 14.159C44.7629 14.581 45 15.1533 45 15.75C45 16.3467 44.7629 16.919 44.341 17.341C43.919 17.7629 43.3467 18 42.75 18H11.25C10.6533 18 10.081 17.7629 9.65901 17.341C9.23705 16.919 9 16.3467 9 15.75ZM0 2.25C0 1.65326 0.237053 1.08097 0.65901 0.65901C1.08097 0.237053 1.65326 0 2.25 0H51.75C52.3467 0 52.919 0.237053 53.341 0.65901C53.7629 1.08097 54 1.65326 54 2.25C54 2.84674 53.7629 3.41903 53.341 3.84099C52.919 4.26295 52.3467 4.5 51.75 4.5H2.25C1.65326 4.5 1.08097 4.26295 0.65901 3.84099C0.237053 3.41903 0 2.84674 0 2.25Z"
+            fill="#545454" />
+    </svg>
+
+    <a>All</a>
+    <a>Telegram Bots</a>
+    <a>Web Dev</a>
+    <a>Parsing</a>
+    <a>Desktop Apps</a>
+</div>
+
+<div class="works_block">
+
+    <div class="work-834hfjd30">
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+    <div class="work-834hfjd30">
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+    <div class="work-834hfjd30">
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+
+        <div class="work_block_1">
+            <a href="#" class="work_title white_block">Weather website</a>
+            <a href="#" class="detailts_btn white_block">More details</a>
+            <img src="{{ url_for('static', filename='imgs/work1.png') }}" alt="">
+            <div class="overlay"></div>
+        </div>
+    </div>
+</div>
+
+<div class="footer_block">
+    <h2>
+        <a href="https://www.linkedin.com/in/denys-didukh-6745a02ab/" target="_blank" rel="noopener noreferrer"
+            class="white_block">Linkedin</a>
+        <a href="https://github.com/DenDevv" target="_blank" rel="noopener noreferrer" class="white_block">GitHub</a>
+        <a href="https://t.me/python_dev_ua" target="_blank" rel="noopener noreferrer" class="white_block">Telegram</a>
+    </h2>
+
+    <h4 class="white_block">
+        ©2024 Denis Didukh - <a href="#" class="white_block">Contact</a>
+    </h4>
+
+    <img src="{{ url_for('static', filename='imgs/footer_back.png') }}" alt="footer icon" draggable="false">
+</div>
+
+<script src="script.js"></script>
+{% endblock %}

@@ -17,14 +17,13 @@ def home():
 @app_blueprint.route("/works", methods=["GET"])
 def works():
     projects = Project.query.all()
-    c_projects = {i: [] for i in base_conf.categories}
+    c_projects = {
+        i: [p for p in projects if p.category == i] for i in base_conf.categories
+    }
 
-    for project in projects:
-        c_projects.get(project.category).append(project)
-
-    return c_projects
-
-    # projects=c_projects, categories=base_conf.categories
+    return render_template(
+        "works.html", projects=c_projects, categories=base_conf.categories
+    )
 
 
 @app_blueprint.route("/work/<work_uuid>", methods=["GET"])

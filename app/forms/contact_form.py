@@ -4,5 +4,7 @@ from wtforms import StringField, EmailField, TextAreaField, SubmitField
 from wtforms.validators import Length, DataRequired
 
 
-class ContactForm(FlaskForm):
-    ...
+class ContactForm(FlaskForm): ...
+
+
+class AdminForm(FlaskForm): ...

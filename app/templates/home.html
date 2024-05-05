@@ -4,6 +4,10 @@
 My Portfolio
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}" type="text/css">
+{% endblock %}
+
 {% block body %}
 
 <div class="home_nav_block">
@@ -69,4 +73,6 @@ My Portfolio
 
 </div>
 
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% endblock %}

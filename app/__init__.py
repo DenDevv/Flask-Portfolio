@@ -15,7 +15,7 @@ admin.add_view(ModelView(Project, db.session))
 
 
 def create_app():
-    from app.views import app_blueprint
+    from app.views import app_blueprint, admin_blueprint
 
     app.secret_key = base_conf.APP_SECRET
     app.config["SQLALCHEMY_DATABASE_URI"] = base_conf.DB_URL
@@ -32,5 +32,6 @@ def create_app():
 
     # Register blueprints.
     app.register_blueprint(app_blueprint)
+    app.register_blueprint(admin_blueprint)
 
     return app
